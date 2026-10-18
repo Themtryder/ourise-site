@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Ourise</title>
+<script>
+  // Test page for the iPhone app's sign-in return (CAP-2). The sign-in code
+  // Base44 adds to the address is removed at once and never shown or kept.
+  var hadToken = /[?&#]access_token=/.test(location.href);
+  history.replaceState(null, '', location.pathname);
+</script>
+<style>body{background:#000;color:#F5F5F5;font-family:-apple-system,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;padding:16px;text-align:center}</style>
+</head>
+<body>
+<div>
+<h1 style="font-weight:500">Return page reached</h1>
+<p id="t" style="color:#9CA3AF"></p>
+</div>
+<script>document.getElementById('t').textContent = hadToken ? 'Base44 sent a sign-in here.' : 'No sign-in arrived.';</script>
+</body>
+</html>
